@@ -47,7 +47,7 @@ if exist "%MACRO_FILE%" (
 
 :: 使用xmake构建
 echo 正在构建项目...
-xmake f -p windows -a x64 -m release --pkg_searchdirs=deps/packages --defines="ARRAYSIZE(x)=((sizeof(x)/sizeof(x[0])))" --defines="_CRTDBG_MAP_ALLOC" --defines="_CRTDBG_MAP_ALLOC_NEW" --includedirs="deps/hl2sdk/public" --includedirs="deps/hl2sdk/public/tier0" --includedirs="deps/hl2sdk/public/tier1"
+xmake f -p windows -a x64 -m release --pkg_searchdirs=deps/packages --includedirs="deps/hl2sdk/public" --includedirs="deps/hl2sdk/public/tier0" --includedirs="deps/hl2sdk/public/tier1"
 xmake
 
 echo 构建完成！
