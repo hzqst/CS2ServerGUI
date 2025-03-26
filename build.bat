@@ -37,9 +37,17 @@ if exist imgui-v1.91.1.7z (
 :: 返回项目根目录
 cd ..
 
+:: 检查并修改 commonmacros.h
+echo 正在检查并修改 commonmacros.h...
+set "MACRO_FILE=deps\hl2sdk\public\tier0\commonmacros.h"
+if exist "%MACRO_FILE%" (
+    powershell -Command "$content = Get-Content '%MACRO_FILE%' -Raw; if ($content -match '#define Q_ARRAYSIZE\(p\)\s*ARRAYSIZE\(p\)') { $content = $content -replace '#define Q_ARRAYSIZE\(p\)\s*ARRAYSIZE\(p\)', '#define Q_ARRAYSIZE(p)		RTL_NUMBER_OF_V2(p)'; Set-Content '%MACRO_FILE%' $content; Write-Host '已修改 Q_ARRAYSIZE 定义' }"
+    powershell -Command "$content = Get-Content '%MACRO_FILE%' -Raw; if ($content -match '#define V_ARRAYSIZE\(p\)\s*ARRAYSIZE\(p\)') { $content = $content -replace '#define V_ARRAYSIZE\(p\)\s*ARRAYSIZE\(p\)', '#define V_ARRAYSIZE(p)		RTL_NUMBER_OF_V1(p)'; Set-Content '%MACRO_FILE%' $content; Write-Host '已修改 V_ARRAYSIZE 定义' }"
+)
+
 :: 使用xmake构建
 echo 正在构建项目...
-xmake f -p windows -a x64 -m release --pkg_searchdirs=deps/packages --includedirs="deps/hl2sdk/public" --includedirs="deps/hl2sdk/public/tier0" --includedirs="deps/hl2sdk/public/tier1"
+xmake f -p windows -a x64 -m release --pkg_searchdirs=deps/packages --defines="ARRAYSIZE(x)=((sizeof(x)/sizeof(x[0])))" --defines="_CRTDBG_MAP_ALLOC" --defines="_CRTDBG_MAP_ALLOC_NEW" --includedirs="deps/hl2sdk/public" --includedirs="deps/hl2sdk/public/tier0" --includedirs="deps/hl2sdk/public/tier1"
 xmake
 
 echo 构建完成！
