@@ -59,7 +59,9 @@ set(SDK_SOURCES
     ${CS2SDK_PATH}/entity2/entityidentity.cpp
     ${CS2SDK_PATH}/entity2/entitykeyvalues.cpp
     ${CS2SDK_PATH}/tier1/keyvalues3.cpp
+    ${CS2SDK_PATH}/interfaces/interfaces.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/extension.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/ehandle_impl.cpp
 )
 
 # 添加protobuf源文件

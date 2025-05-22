@@ -31,7 +31,6 @@ extern CGlobalVars *gpGlobals;
 using SchemaKeyValueMap_t = CUtlMap<uint32_t, SchemaKey>;
 using SchemaTableMap_t = CUtlMap<uint32_t, SchemaKeyValueMap_t*>;
 
-
 static bool IsFieldNetworked(SchemaClassFieldData_t& field)
 {
     for (int i = 0; i < field.m_nStaticMetadataCount; i++)

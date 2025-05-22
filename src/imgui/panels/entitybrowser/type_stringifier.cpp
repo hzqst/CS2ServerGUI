@@ -20,6 +20,7 @@
 #include "type_stringifier.h"
 #include "schemasystem/schemasystem.h"
 #include <entity2/entitysystem.h>
+#include <game/shared/ehandle.h>
 #include <format>
 #include <imgui.h>
 
