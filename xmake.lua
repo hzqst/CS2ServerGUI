@@ -5,11 +5,9 @@ add_requires("imgui", {debug = is_mode("debug"), configs = {dx9 = true, win32 = 
 add_requires("nlohmann_json")
 add_requires("imgui-file-dialog", {debug = is_mode("debug")})
 
-
 includes("@builtin/xpack")
 
 local SDK_PATH = os.getenv("HL2SDKCS2")
---local SDK_PATH = "G:/hl2sdk-experimental/hl2sdk"
 local MM_PATH = os.getenv("MMSOURCE112")
 
 target("CS2ServerGUI")
@@ -17,7 +15,6 @@ target("CS2ServerGUI")
     add_files("src/**.cpp")
     add_headerfiles("src/**.h")
     add_packages("imgui", "nlohmann_json", "imgui-file-dialog")
-    --set_symbols("hidden")
 
     add_files({
         SDK_PATH.."/tier1/convar.cpp",

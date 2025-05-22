@@ -20,7 +20,7 @@
 #include <stdio.h>
 #include "extension.h"
 #include <iserver.h>
-#include <funchook.h>
+//#include <funchook.h>
 #include <iostream>
 #include <fstream>
 #include <filesystem>

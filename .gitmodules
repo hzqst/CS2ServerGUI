@@ -1,0 +1,16 @@
+[submodule "thirdparty/metamod-source"]
+	path = thirdparty/metamod-source
+	url = https://github.com/alliedmodders/metamod-source
+[submodule "thirdparty/hl2sdk"]
+	path = thirdparty/hl2sdk
+	url = https://github.com/alliedmodders/hl2sdk
+	branch = cs2
+[submodule "thirdparty/imgui"]
+	path = thirdparty/imgui
+	url = https://github.com/ocornut/imgui
+[submodule "thirdparty/ImGuiFileDialog"]
+	path = thirdparty/ImGuiFileDialog
+	url = https://github.com/aiekick/ImGuiFileDialog
+[submodule "thirdparty/nlohmann_json"]
+	path = thirdparty/nlohmann_json
+	url = https://github.com/nlohmann/json
