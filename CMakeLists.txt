@@ -61,7 +61,6 @@ set(SDK_SOURCES
     ${CS2SDK_PATH}/tier1/keyvalues3.cpp
     ${CS2SDK_PATH}/interfaces/interfaces.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/src/extension.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/ehandle_impl.cpp
 )
 
 # 添加protobuf源文件
@@ -140,3 +139,16 @@ file(GLOB_RECURSE IMGUI_FILE_DIALOG_SOURCES
     "${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/ImGuiFileDialog/*.cpp"
 )
 target_sources(CS2ServerGUI PRIVATE ${IMGUI_FILE_DIALOG_SOURCES}) 
+
+# 安装命令
+install(TARGETS CS2ServerGUI
+    RUNTIME DESTINATION bin
+    LIBRARY DESTINATION lib
+)
+
+# 如果是MSVC编译器，安装PDB文件（调试信息）
+if(MSVC)
+    install(FILES $<TARGET_PDB_FILE:CS2ServerGUI> 
+            DESTINATION bin 
+            OPTIONAL)
+endif() 
